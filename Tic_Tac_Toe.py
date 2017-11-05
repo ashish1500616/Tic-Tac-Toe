@@ -43,3 +43,26 @@ def full_board_check(board):
         return False
     else:
         return True
+
+# function to ask player the choice index and fill the index if empty
+def ask_player(mark):
+    ''' Asks player where to place X or O mark, checks validity '''
+    global board
+    req = 'Choose where to place your: ' + mark
+    while True:
+        try:
+            choice = int(input(req))
+        except ValueError:
+            print("Sorry, please input a number between 1-9.")
+            continue
+
+        if choice not in range(1,10):
+            print("Sorry, please input a number between 1-9.")
+            continue
+
+        if board[choice] == " ":
+            board[choice] = mark
+            break
+        else:
+            print ("That space isn't empty!")
+            continue
