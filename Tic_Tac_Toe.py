@@ -66,3 +66,32 @@ def ask_player(mark):
         else:
             print ("That space isn't empty!")
             continue
+
+#function to take the players Choice.
+
+def player_choice(mark):
+    global board,game_state,announce
+    #Set game blank game announcement
+    announce = ''
+    #Get Player Input
+    mark = str(mark)
+    # Validate input
+    ask_player(mark)
+
+    #Check for player win
+    if win_check(board,mark):
+        clear_output()
+        display_board()
+        announce = mark +" wins! Congratulations"
+        game_state = False
+    
+    #Show board
+    clear_output()
+    display_board()
+
+    #Check for a tie 
+    if full_board_check(board):
+        announce = "Tie!"
+        game_state = False
+        
+    return game_state,announce
