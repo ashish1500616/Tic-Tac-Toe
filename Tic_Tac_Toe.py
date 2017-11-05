@@ -36,3 +36,10 @@ def win_check(board, player):
         return True
     else:
         return False
+
+#function to check the full board whether the board is full empty.
+def full_board_check(board):
+    if " " in board[1:]:
+        return False
+    else:
+        return True
