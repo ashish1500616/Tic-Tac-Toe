@@ -95,3 +95,36 @@ def player_choice(mark):
         game_state = False
         
     return game_state,announce
+
+#binding up all the function in a play_game function.
+def play_game():
+    reset_board()
+    global announce
+    
+    # Set marks
+    X='X'
+    O='O'
+    while True:
+        # Show board
+        clear_output()
+        display_board()
+        
+        # Player X turn
+        game_state,announce = player_choice(X)
+        print(announce)
+        if game_state == False:
+            break
+            
+        # Player O turn
+        game_state,announce = player_choice(O)
+        print (announce)
+        if game_state == False:
+            break
+    
+    # Ask player for a rematch
+    rematch = raw_input('Would you like to play again? y/n')
+    if rematch == 'y':
+        play_game()
+    else:
+        print ("Thanks for playing!")
+    
